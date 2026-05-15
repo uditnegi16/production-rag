@@ -8,16 +8,31 @@ STRICT RULES:
 5. Keep your answer concise and directly responsive to the question.
 
 CONTEXT:
-[doc_chunk_0] (page 1):
-Revenue was 5 billion dollars in 2023.
+[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_68] (page 21):
+Creating LLMs, in contrast, typically consists of at least two steps: Language modeling The first step, called pretraining, takes the majority of computation and training time. An LLM is trained on a vast corpus of internet text allowing the model to learn grammar, context, and language patterns. This broad training phase is not yet directed toward specific tasks or applications beyond predicting the next word. The resulting model is often referred to as a foundation model or base model.
 
 ---
 
-[doc_chunk_1] (page 2):
-The company grew by 12 percent.
+[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_5] (page 2):
+What are the common use cases and applications of large language models? How can we use large language models ourselves? What Is Language AI? The term artificial intelligence (AI) is often used to describe computer systems dedicated to performing tasks close to human intelligence, such as speech recognition, language translation, and visual perception. It is the intelligence of software as opposed to the intelligence of humans.
+
+---
+
+[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_65] (page 20):
+Since the definition of the term “large language model” tends to evolve with the release of new models, we want to be explicit in what it means for this book. “Large” is arbitrary and what might be considered a large model today could be small tomorrow. There are currently many names for the same thing and to us, “large language models” are also models that do not generate text and can be run on consumer hardware.
+
+---
+
+[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_113] (page 30):
+models (decoder-only) like the GPT family of models. Both categories are considered large language models throughout this book. Overall, the chapter provided an overview of the landscape of Language AI, including its applications, societal and ethical implications, and the resources needed to run such models. We ended by generating our first text using Phi-3, a model that will be used throughout the book. In the next two chapters, you will learn about some underlying processes.
+
+---
+
+[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_9] (page 2):
+Throughout this book, we want to focus on the models that have had a major role in shaping the field of Language AI. This means exploring more than just LLMs in isolation. That, however, brings us to the question: what are large language models? To begin answering this question in this chapter, let’s first explore the history of Language AI. 1
 
 QUESTION:
-What is revenue?
+what is language model 
 
 FORMAT YOUR RESPONSE EXACTLY LIKE THIS:
 ANSWER: [your answer here]

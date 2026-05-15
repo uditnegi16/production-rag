@@ -12,7 +12,7 @@ LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY")
 
-GROQ_MODEL = "llama3-8b-8192"
+GROQ_MODEL = "llama-3.1-8b-instant"
 NVIDIA_MODEL = "meta/llama-3.1-8b-instruct"
 NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1"
 
@@ -77,6 +77,7 @@ def generate_answer(
         }
 
     except Exception as e:
+        print(f"LLM ERROR: {e}")  # add this line
         result = get_fallback()
         result["error"] = str(e)
         result["doc_id"] = doc_id
