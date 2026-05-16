@@ -10,7 +10,11 @@ from app.generation.generator import generate_answer
 from app.monitoring.logger import log_query, log_feedback, init_db
 from app.monitoring.dashboard import get_dashboard_data
 from app.security.sanitizer import sanitize_query
-
+from langsmith import traceable
+import os
+from langsmith import Client
+import langsmith
+langsmith_client = Client() if os.getenv("LANGCHAIN_TRACING_V2") == "true" else None
 router = APIRouter()
 UPLOAD_DIR = "./data/raw"
 
@@ -71,7 +75,16 @@ async def upload_document(file: UploadFile = File(...)):
         "duration_seconds": result["duration_seconds"],
     })
 
-
+@langsmith.traceable(run_type="chain", project_name="production-rag")
+def trace_query(query: str, answer: str, confidence: float, source_page: int, latency_ms: float, is_fallback: bool):
+    return {
+        "query": query,
+        "answer": answer,
+        "confidence": confidence,
+        "source_page": source_page,
+        "latency_ms": latency_ms,
+        "is_fallback": is_fallback,
+    }
 @router.post("/query")
 async def query_document(request: QueryRequest):
     if not request.query or not request.query.strip():
@@ -98,7 +111,17 @@ async def query_document(request: QueryRequest):
         )
 
         latency_ms = round((time.time() - start_time) * 1000, 2)
-
+ 
+ 
+ 
+        trace_query(
+            query=clean_query,
+            answer=generation_result.get("answer", ""),
+            confidence=generation_result.get("confidence", 0.0),
+            source_page=generation_result.get("source_page"),
+            latency_ms=latency_ms,
+            is_fallback=generation_result.get("is_fallback", False),
+        )
         log_id = log_query(
             query_text=clean_query,
             answer=generation_result.get("answer", ""),

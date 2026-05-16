@@ -8,21 +8,31 @@ STRICT RULES:
 5. Keep your answer concise and directly responsive to the question.
 
 CONTEXT:
-[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_60] (page 19):
-As illustrated in Figure 1-28, both open source and proprietary LLMs have made their way to the people at an incredible pace. These open source base models are often referred to as foundation models and can be fine-tuned for specific tasks, like following instructions. Figure 1-28. A comprehensive view into the Year of Generative AI. Note that many models are stillmissing from this overview! Apart from the widely popular Transformer architecture, new promising architectures have emerged such as Mamba and RWKV.
+[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_65] (page 20):
+Since the definition of the term “large language model” tends to evolve with the release of new models, we want to be explicit in what it means for this book. “Large” is arbitrary and what might be considered a large model today could be small tomorrow. There are currently many names for the same thing and to us, “large language models” are also models that do not generate text and can be run on consumer hardware.
 
 ---
 
-[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_68] (page 21):
-Creating LLMs, in contrast, typically consists of at least two steps: Language modeling The first step, called pretraining, takes the majority of computation and training time. An LLM is trained on a vast corpus of internet text allowing the model to learn grammar, context, and language patterns. This broad training phase is not yet directed toward specific tasks or applications beyond predicting the next word. The resulting model is often referred to as a foundation model or base model.
+[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_63] (page 20):
+Language Model” In our travels through the recent history of Language AI, we observed that primarily generative decoder-only (Transformer) models are commonly referred to as large language models. Especially if they are considered to be “large.” In practice, this seems like a rather constrained description! What if we create a model with the same capabilities as GPT-3 but 10 times smaller? Would such a model fall outside the “large” language model categorization?
 
 ---
 
-[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_70] (page 21):
-It saves massive amounts of resources because the pretraining phase is quite costly and generally requires data and computing resources that are out of the reach of most people and organizations. For instance, Llama 2 has been trained on a dataset containing 2 trillion tokens. Imagine the compute necessary to create that model! In Chapter 12, we will go over several methods for fine-tuning foundation models on your dataset.
+[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_5] (page 2):
+What are the common use cases and applications of large language models? How can we use large language models ourselves? What Is Language AI? The term artificial intelligence (AI) is often used to describe computer systems dedicated to performing tasks close to human intelligence, such as speech recognition, language translation, and visual perception. It is the intelligence of software as opposed to the intelligence of humans.
+
+---
+
+[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_55] (page 17):
+Figure 1-25. GPT models quickly grew in size with each iteration. These generative decoder-only models, especially the “larger” models, are commonly referred to as large language models (LLMs). As we will discuss later in this chapter, the term LLM is not only reserved for generative models (decoder-only) but also representation models (encoder-only). 8 9
+
+---
+
+[1. An Introduction to Large Language Models _ Hands-On Large Language Models_00ba9cc0_chunk_9] (page 2):
+Throughout this book, we want to focus on the models that have had a major role in shaping the field of Language AI. This means exploring more than just LLMs in isolation. That, however, brings us to the question: what are large language models? To begin answering this question in this chapter, let’s first explore the history of Language AI. 1
 
 QUESTION:
-What is a foundation model?
+What is a large language model?
 
 FORMAT YOUR RESPONSE EXACTLY LIKE THIS:
 ANSWER: [your answer here]

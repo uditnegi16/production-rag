@@ -1,3 +1,9 @@
+from dotenv import load_dotenv
+load_dotenv()
+import os
+os.environ["LANGSMITH_TRACING"] = os.getenv("LANGSMITH_TRACING", "fTRUE")
+os.environ["LANGSMITH_API_KEY"] = os.getenv("LANGSMITH_API_KEY", "")
+os.environ["LANGSMITH_PROJECT"] = os.getenv("LANGSMITH_PROJECT", "production-rag")
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import router
