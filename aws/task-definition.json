@@ -1,0 +1,36 @@
+{
+  "family": "production-rag-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "2048",
+  "executionRoleArn": "arn:aws:iam::381492009163:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "production-rag-api",
+      "image": "381492009163.dkr.ecr.ap-south-1.amazonaws.com/production-rag:latest",
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {"name": "GROQ_API_KEY", "value": "your_groq_api_key"},
+        {"name": "LLM_PROVIDER", "value": "groq"},
+        {"name": "CHROMA_PERSIST_PATH", "value": "/app/data/processed/chroma"},
+        {"name": "POSTGRES_URL", "value": "sqlite:////app/data/processed/rag_logs.db"},
+        {"name": "ENVIRONMENT", "value": "production"},
+        {"name": "ALLOWED_ORIGINS", "value": "*"}
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/production-rag",
+          "awslogs-region": "ap-south-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
