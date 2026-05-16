@@ -1,6 +1,6 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.4.0+cpu
-fastapi
+torch==2.6.0+cpu
+transformers==4.46.0
 uvicorn
 python-dotenv
 pypdf
