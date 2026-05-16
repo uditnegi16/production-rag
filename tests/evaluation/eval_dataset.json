@@ -1,0 +1,62 @@
+[
+  {
+    "id": "eval_001",
+    "question": "What is a large language model?",
+    "expected_keywords": ["transformer", "generative", "decoder", "language model"],
+    "source_page": 20
+  },
+  {
+    "id": "eval_002",
+    "question": "What is pretraining?",
+    "expected_keywords": ["pretraining", "training", "model", "text"],
+    "source_page": 21
+  },
+  {
+    "id": "eval_003",
+    "question": "What is fine tuning?",
+    "expected_keywords": ["specific", "task", "pretrained", "adapt"],
+    "source_page": 21
+  },
+  {
+    "id": "eval_004",
+    "question": "What is a token?",
+    "expected_keywords": ["token", "word", "subword", "text"],
+    "source_page": 20
+  },
+  {
+    "id": "eval_005",
+    "question": "What is the difference between a base model and a foundation model?",
+    "expected_keywords": ["pretraining", "foundation", "base", "large"],
+    "source_page": 21
+  },
+  {
+  "id": "eval_006",
+  "question": "What is a foundation model?",
+  "expected_keywords": ["pretraining", "foundation", "trained", "model"],
+  "source_page": 21
+},
+  {
+    "id": "eval_007",
+    "question": "What is the transformer architecture?",
+    "expected_keywords": ["attention", "encoder", "decoder", "transformer"],
+    "source_page": 20
+  },
+  {
+  "id": "eval_008",
+  "question": "What is the attention mechanism?",
+  "expected_keywords": ["attention", "transformer", "model"],
+  "source_page": 11
+},
+  {
+    "id": "eval_009",
+    "question": "What is an embedding?",
+    "expected_keywords": ["vector", "representation", "semantic", "embedding"],
+    "source_page": 20
+  },
+  {
+    "id": "eval_010",
+    "question": "What is the context window of a language model?",
+    "expected_keywords": ["context", "window", "tokens", "length"],
+    "source_page": 20
+  }
+]

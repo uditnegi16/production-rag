@@ -1,0 +1,328 @@
+[
+  {
+    "id": "eval_001",
+    "question": "What is a large language model?",
+    "expected_keywords": [
+      "transformer",
+      "generative",
+      "decoder",
+      "language model"
+    ],
+    "source_page": 20,
+    "status": "PASS",
+    "answer": "A large language model is a model that does not generate text and can be run on consumer hardware, or a generative decoder-only (Transformer) model, especially if it is considered to be \"large\".",
+    "confidence": 0.9999,
+    "latency_ms": 1441.08,
+    "hallucination": {
+      "hallucinated": false,
+      "reason": "Answer grounded in source",
+      "overlap_score": 0.6429,
+      "overlap_word_count": 18
+    },
+    "keyword_coverage": {
+      "coverage": 1.0,
+      "found_keywords": [
+        "transformer",
+        "generative",
+        "decoder",
+        "language model"
+      ],
+      "missing_keywords": [],
+      "passed": true
+    }
+  },
+  {
+    "id": "eval_002",
+    "question": "What is pretraining?",
+    "expected_keywords": [
+      "pretraining",
+      "training",
+      "model",
+      "text"
+    ],
+    "source_page": 21,
+    "status": "PASS",
+    "answer": "Pretraining is the first step in creating LLMs, which involves training the model on a vast corpus of internet text to learn grammar, context, and language patterns.",
+    "confidence": 0.9935,
+    "latency_ms": 1510.37,
+    "hallucination": {
+      "hallucinated": false,
+      "reason": "Answer grounded in source",
+      "overlap_score": 0.8462,
+      "overlap_word_count": 22
+    },
+    "keyword_coverage": {
+      "coverage": 1.0,
+      "found_keywords": [
+        "pretraining",
+        "training",
+        "model",
+        "text"
+      ],
+      "missing_keywords": [],
+      "passed": true
+    }
+  },
+  {
+    "id": "eval_003",
+    "question": "What is fine tuning?",
+    "expected_keywords": [
+      "specific",
+      "task",
+      "pretrained",
+      "adapt"
+    ],
+    "source_page": 21,
+    "status": "PASS",
+    "answer": "Fine-tuning is the second step in LLM training, which involves using a previously trained model and further training it on a narrower task to adapt to specific tasks or exhibit desired behavior.",
+    "confidence": 0.9994,
+    "latency_ms": 953.64,
+    "hallucination": {
+      "hallucinated": false,
+      "reason": "Answer grounded in source",
+      "overlap_score": 0.8333,
+      "overlap_word_count": 25
+    },
+    "keyword_coverage": {
+      "coverage": 0.75,
+      "found_keywords": [
+        "specific",
+        "task",
+        "adapt"
+      ],
+      "missing_keywords": [
+        "pretrained"
+      ],
+      "passed": true
+    }
+  },
+  {
+    "id": "eval_004",
+    "question": "What is a token?",
+    "expected_keywords": [
+      "token",
+      "word",
+      "subword",
+      "text"
+    ],
+    "source_page": 4,
+    "status": "PASS",
+    "answer": "A token is a word or subword resulting from the tokenization process.",
+    "confidence": 0.6719,
+    "latency_ms": 1242.71,
+    "hallucination": {
+      "hallucinated": false,
+      "reason": "Answer grounded in source",
+      "overlap_score": 0.4545,
+      "overlap_word_count": 5
+    },
+    "keyword_coverage": {
+      "coverage": 0.75,
+      "found_keywords": [
+        "token",
+        "word",
+        "subword"
+      ],
+      "missing_keywords": [
+        "text"
+      ],
+      "passed": true
+    }
+  },
+  {
+    "id": "eval_005",
+    "question": "What is the difference between a base model and a foundation model?",
+    "expected_keywords": [
+      "pretraining",
+      "foundation",
+      "base",
+      "large"
+    ],
+    "source_page": 21,
+    "status": "PASS",
+    "answer": "There is no difference mentioned between a base model and a foundation model in the provided context.",
+    "confidence": 0.8929,
+    "latency_ms": 1553.03,
+    "hallucination": {
+      "hallucinated": false,
+      "reason": "Answer grounded in source",
+      "overlap_score": 0.5333,
+      "overlap_word_count": 8
+    },
+    "keyword_coverage": {
+      "coverage": 0.5,
+      "found_keywords": [
+        "foundation",
+        "base"
+      ],
+      "missing_keywords": [
+        "pretraining",
+        "large"
+      ],
+      "passed": true
+    }
+  },
+  {
+    "id": "eval_006",
+    "question": "What is a foundation model?",
+    "expected_keywords": [
+      "pretraining",
+      "foundation",
+      "trained",
+      "model"
+    ],
+    "source_page": 19,
+    "status": "PASS",
+    "answer": "A foundation model is an open source base model that can be fine-tuned for specific tasks, and it is often the result of the pretraining phase of creating LLMs.",
+    "confidence": 0.998,
+    "latency_ms": 1269.11,
+    "hallucination": {
+      "hallucinated": false,
+      "reason": "Answer grounded in source",
+      "overlap_score": 0.68,
+      "overlap_word_count": 17
+    },
+    "keyword_coverage": {
+      "coverage": 0.75,
+      "found_keywords": [
+        "pretraining",
+        "foundation",
+        "model"
+      ],
+      "missing_keywords": [
+        "trained"
+      ],
+      "passed": true
+    }
+  },
+  {
+    "id": "eval_007",
+    "question": "What is the transformer architecture?",
+    "expected_keywords": [
+      "attention",
+      "encoder",
+      "decoder",
+      "transformer"
+    ],
+    "source_page": 11,
+    "status": "PASS",
+    "answer": "The Transformer architecture is a network architecture that is solely based on the attention mechanism and removes the recurrence network, stacking encoding and decoder components on top of each other.",
+    "confidence": 0.9992,
+    "latency_ms": 1339.09,
+    "hallucination": {
+      "hallucinated": false,
+      "reason": "Answer grounded in source",
+      "overlap_score": 0.8333,
+      "overlap_word_count": 20
+    },
+    "keyword_coverage": {
+      "coverage": 0.75,
+      "found_keywords": [
+        "attention",
+        "decoder",
+        "transformer"
+      ],
+      "missing_keywords": [
+        "encoder"
+      ],
+      "passed": true
+    }
+  },
+  {
+    "id": "eval_008",
+    "question": "What is the attention mechanism?",
+    "expected_keywords": [
+      "attention",
+      "transformer",
+      "model"
+    ],
+    "source_page": 10,
+    "status": "PASS",
+    "answer": "The attention mechanism allows a model to \"attend\" to certain parts of sequences that might relate more or less to one another, selectively determining which words are most important in a given sentence.",
+    "confidence": 0.9996,
+    "latency_ms": 1442.97,
+    "hallucination": {
+      "hallucinated": false,
+      "reason": "Answer grounded in source",
+      "overlap_score": 0.5667,
+      "overlap_word_count": 17
+    },
+    "keyword_coverage": {
+      "coverage": 0.6667,
+      "found_keywords": [
+        "attention",
+        "model"
+      ],
+      "missing_keywords": [
+        "transformer"
+      ],
+      "passed": true
+    }
+  },
+  {
+    "id": "eval_009",
+    "question": "What is an embedding?",
+    "expected_keywords": [
+      "vector",
+      "representation",
+      "semantic",
+      "embedding"
+    ],
+    "source_page": 5,
+    "status": "PASS",
+    "answer": "A vector representation of data that attempts to capture its meaning.",
+    "confidence": 0.9984,
+    "latency_ms": 1443.45,
+    "hallucination": {
+      "hallucinated": false,
+      "reason": "Answer grounded in source",
+      "overlap_score": 0.8182,
+      "overlap_word_count": 9
+    },
+    "keyword_coverage": {
+      "coverage": 0.5,
+      "found_keywords": [
+        "vector",
+        "representation"
+      ],
+      "missing_keywords": [
+        "semantic",
+        "embedding"
+      ],
+      "passed": true
+    }
+  },
+  {
+    "id": "eval_010",
+    "question": "What is the context window of a language model?",
+    "expected_keywords": [
+      "context",
+      "window",
+      "tokens",
+      "length"
+    ],
+    "source_page": 18,
+    "status": "PASS",
+    "answer": "The context window represents the maximum number of tokens the model can process.",
+    "confidence": 0.9942,
+    "latency_ms": 1341.54,
+    "hallucination": {
+      "hallucinated": false,
+      "reason": "Answer grounded in source",
+      "overlap_score": 0.9091,
+      "overlap_word_count": 10
+    },
+    "keyword_coverage": {
+      "coverage": 0.75,
+      "found_keywords": [
+        "context",
+        "window",
+        "tokens"
+      ],
+      "missing_keywords": [
+        "length"
+      ],
+      "passed": true
+    }
+  }
+]

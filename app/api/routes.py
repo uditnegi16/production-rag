@@ -9,6 +9,7 @@ from app.retrieval.search import retrieve
 from app.generation.generator import generate_answer
 from app.monitoring.logger import log_query, log_feedback, init_db
 from app.monitoring.dashboard import get_dashboard_data
+from app.security.sanitizer import sanitize_query
 
 router = APIRouter()
 UPLOAD_DIR = "./data/raw"
@@ -79,15 +80,17 @@ async def query_document(request: QueryRequest):
     start_time = time.time()
 
     try:
+        clean_query = sanitize_query(request.query)
+
         retrieval_result = retrieve(
-            query=request.query,
+            query=clean_query,
             doc_id=request.doc_id,
             top_k=request.top_k,
             top_n=request.top_n,
         )
 
         generation_result = generate_answer(
-            query=request.query,
+            query=clean_query,
             chunks=retrieval_result["chunks"],
             top_score=retrieval_result["top_score"],
             reranked_count=retrieval_result["reranked_count"],
@@ -97,7 +100,7 @@ async def query_document(request: QueryRequest):
         latency_ms = round((time.time() - start_time) * 1000, 2)
 
         log_id = log_query(
-            query_text=request.query,
+            query_text=clean_query,
             answer=generation_result.get("answer", ""),
             doc_id=request.doc_id,
             source_chunk_id=generation_result.get("source_chunk_id"),
@@ -115,7 +118,7 @@ async def query_document(request: QueryRequest):
 
         return JSONResponse(content={
             "log_id": log_id,
-            "query": request.query,
+            "query": clean_query,
             "answer": generation_result.get("answer"),
             "source_chunk_id": generation_result.get("source_chunk_id"),
             "source_text": generation_result.get("source_text"),
@@ -135,7 +138,6 @@ async def query_document(request: QueryRequest):
             latency_ms=latency_ms,
         )
         raise HTTPException(status_code=500, detail=str(e))
-
 
 @router.post("/feedback")
 async def submit_feedback(request: FeedbackRequest):

@@ -1,5 +1,7 @@
 from typing import List
 from pathlib import Path
+from app.security.sanitizer import sanitize_chunk
+
 
 PROMPT_VERSION = "v1"
 PROMPT_PATH = Path("prompts/rag_prompt_v1.txt")
@@ -31,12 +33,12 @@ def build_prompt(query: str, chunks: List[dict]) -> dict:
         raise ValueError("Query cannot be empty.")
 
     context_parts = []
+        # in build_prompt, change the context loop to:
     for chunk in chunks:
         chunk_id = chunk.get("chunk_id", "unknown")
         page = chunk.get("metadata", {}).get("page_number", "?")
-        text = chunk.get("text", "")
+        text = sanitize_chunk(chunk.get("text", ""))
         context_parts.append(f"[{chunk_id}] (page {page}):\n{text}")
-
     context = "\n\n---\n\n".join(context_parts)
 
     filled_prompt = SYSTEM_PROMPT.format(
