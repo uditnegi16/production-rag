@@ -83,7 +83,17 @@ def test_delete_document_removes_chunks():
 
 
 def test_get_document_count():
+    # cleanup before
+    from app.ingestion.vector_store import get_collection
+    col = get_collection()
+    existing = col.get()
+    if existing["ids"]:
+        col.delete(ids=existing["ids"])
+    
     chunks = _make_chunks(4)
     store_chunks(chunks)
     count = get_document_count()
     assert count == 4
+    
+    # cleanup after
+    col.delete(ids=[c["chunk_id"] for c in chunks])
