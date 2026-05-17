@@ -12,6 +12,7 @@ from app.monitoring.dashboard import get_dashboard_data
 from app.security.sanitizer import sanitize_query
 from langsmith import traceable
 import os
+from app.cache.query_cache import get_cached_response, set_cached_response
 from langsmith import Client
 import langsmith
 langsmith_client = Client() if os.getenv("LANGCHAIN_TRACING_V2") == "true" else None
@@ -95,6 +96,10 @@ async def query_document(request: QueryRequest):
     try:
         clean_query = sanitize_query(request.query)
 
+        # check cache first
+        cached = get_cached_response(clean_query, request.doc_id)
+        if cached:
+            return JSONResponse(content=cached)
         retrieval_result = retrieve(
             query=clean_query,
             doc_id=request.doc_id,
@@ -139,7 +144,7 @@ async def query_document(request: QueryRequest):
             error=generation_result.get("error"),
         )
 
-        return JSONResponse(content={
+        response_data = {
             "log_id": log_id,
             "query": clean_query,
             "answer": generation_result.get("answer"),
@@ -150,7 +155,12 @@ async def query_document(request: QueryRequest):
             "is_fallback": generation_result.get("is_fallback", False),
             "latency_ms": latency_ms,
             "llm_provider": generation_result.get("llm_provider"),
-        })
+        }
+
+        if not generation_result.get("is_fallback"):
+            set_cached_response(clean_query, response_data, request.doc_id)
+
+        return JSONResponse(content=response_data)
 
     except Exception as e:
         latency_ms = round((time.time() - start_time) * 1000, 2)
