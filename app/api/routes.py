@@ -190,3 +190,11 @@ async def dashboard(limit: int = 100):
         return JSONResponse(content=data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+@router.get("/drift")
+async def drift_check():
+    try:
+        from app.maintenance.drift_detector import check_drift
+        result = check_drift()
+        return JSONResponse(content=result)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
