@@ -21,7 +21,11 @@
         {"name": "CHROMA_PERSIST_PATH", "value": "/app/data/processed/chroma"},
         {"name": "POSTGRES_URL", "value": "sqlite:////app/data/processed/rag_logs.db"},
         {"name": "ENVIRONMENT", "value": "production"},
-        {"name": "ALLOWED_ORIGINS", "value": "*"}
+        {"name": "ALLOWED_ORIGINS", "value": "*"},
+        {"name": "LANGSMITH_TRACING", "value": "true"},
+        {"name": "LANGSMITH_API_KEY", "value": "langsmithkey"},
+        {"name": "LANGSMITH_PROJECT", "value": "production-rag"},
+        {"name": "REDIS_URL", "value": "your_redis_url"}
       ],
       "logConfiguration": {
         "logDriver": "awslogs",

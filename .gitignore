@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+aws/task-definition.json
+aws/trust-policy.json
+aws/s3-policy.json
